@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Route::get('/bismilla', function(){
+//     // return "Bismillahir Rahmanir Rahim";
+//     return view("myview");
+// });
+
+Route::get('/lina', [MyController::class, 'myfunction']);
