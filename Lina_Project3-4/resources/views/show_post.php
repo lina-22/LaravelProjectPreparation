@@ -48,13 +48,13 @@
 
    <div class="container">
      <h2>Our posts is running</h2>
+ <div class="container">
+     <div class="w-50">
+         <h2>{{$post->title}}</h2>
+         <p> {{$post->body}} </p>
+     </div>
+ </div>
 
-     <ul>
-       @foreach ($posts as $post)
-       <li><a href="{{route('post.show', ['id'=>$post->id])}}">{{$post->title}}</a></li>
-     
-      @endforeach
-     </ul>
    </div>
    
     <div class="container">

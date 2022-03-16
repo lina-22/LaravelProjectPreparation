@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <h1>Postsssss!</h1>
+    <h1>Fill up the form!</h1>
     <div class="container">
       <div class="row">
         <div class="col-md-5">
@@ -30,8 +30,7 @@
           <form action="{{ route('post.add') }}
           " method="post">
             @csrf
-            <!-- @method('PUT') -->
-            @method('DELETE')
+
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
               <input type="text" class="form-control" id="title" name="title">
