@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaysController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/admin/pays",[PaysController::class,"index"]);
+//Affiche le formualaire d'ajout
+Route::get("/admin/pays/create",[PaysController::class,"create"]);
+//Traitement du formulaire
+Route::post("/admin/pays",[PaysController::class,"store"]);
+
+//Faire les mapping d'un seul resource controller
+
+Route::resource("admin/payss", PaysController::class);
+Route::resources(["admin/pays"=>paysController::class,
+]);
