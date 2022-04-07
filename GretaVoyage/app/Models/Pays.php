@@ -8,6 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Pays extends Model
 {
     use HasFactory;
-    // protected $fillable =["nom","population", "region"];
-    protected $guarded = ["id"];
 }

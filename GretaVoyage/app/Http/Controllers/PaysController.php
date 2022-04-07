@@ -14,8 +14,8 @@ class PaysController extends Controller
      */
     public function index()
     {
-        $lesPays =Pays::all();
-        return view("pays.listepays", ["pays"=>$lesPays]);
+        $lesPays=Pays::all();
+        return view("pays.listepays",["pays"=>$lesPays]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PaysController extends Controller
      */
     public function create()
     {
-        //
+        return view("pays.ajoutpays");
     }
 
     /**
@@ -36,7 +36,16 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validation des champs/attributs
+        $attributs=$request->validate(
+            ["nom"=>"required|min:2|max:100|string|unique:Pays,nom",
+            "population"=>"numeric|required|min:0",
+            "region"=>"required|string|min:4"]
+        );
+        //Enregistrement du pays dans la table
+        Pays::create($attributs);
+        //redirection vers le dashboard
+       return redirect("/admin/pays");
     }
 
     /**
@@ -83,4 +92,5 @@ class PaysController extends Controller
     {
         //
     }
+
 }

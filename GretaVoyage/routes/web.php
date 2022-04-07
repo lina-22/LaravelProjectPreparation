@@ -18,14 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/admin/pays",[PaysController::class,"index"]);
-//Affiche le formualaire d'ajout
-Route::get("/admin/pays/create",[PaysController::class,"create"]);
-//Traitement du formulaire
-Route::post("/admin/pays",[PaysController::class,"store"]);
+// Route::get("/admin/pays",[PaysController::class,"index"]);
+// //Afficher le formualaire d'ajout
+// Route::get("/admin/pays/create",[PaysController::class,"create"]);
+// //Traitement du formulaire
+// Route::post("/admin/pays",[PaysController::class,"store"]);
 
 //Faire les mapping d'un seul resource controller
+Route::resource("admin/pays",PaysController::class);
 
-Route::resource("admin/payss", PaysController::class);
-Route::resources(["admin/pays"=>paysController::class,
-]);
+//Faire le mapping de plusieurs resources controllers
+// Route::resources(
+//     [
+//         "admin/pays"=>PaysController::class,
+//         "admin/destinations"=>DestinationsController::class
+//     ]
+// );

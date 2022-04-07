@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('pays', function (Blueprint $table) {
             $table->id();
-            $table->string("nom", 100)->unique;
+            $table->string("nom",100)->unique();
             $table->integer("population");
             $table->string("region");
             $table->timestamps();
+
         });
     }
 
