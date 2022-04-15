@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Pays;
 use Illuminate\Http\Request;
 
-class PaysController extends Controller
+class AdminPaysController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $lesPays=Pays::all();
-        return view("pays.listepays",["pays"=>$lesPays]);
+        $lesPays = Pays::all();
+        return view("pays.listepays", ["pays" => $lesPays]);
     }
 
     /**
@@ -36,8 +36,8 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        //Validation des champs/attributs
-        $attributs = $request->validate(
+           //Validation des champs/attributs
+           $attributs = $request->validate(
             [
                 "nom" => "required|min:2|max:100|string|unique:Pays,nom",
                 "population" => "numeric|required|min:0",
@@ -76,7 +76,10 @@ class PaysController extends Controller
      */
     public function edit(Pays $pays)
     {
-        //
+       // $pays=Pays::find($id);
+    ddd($pays);
+        //Afficher un formulaire modification pré-rempli
+        return view("pays.modifpays",["lePays"=>$pays]);
     }
 
     /**

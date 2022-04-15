@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("nom",100)->unique();
             $table->integer("population");
             $table->string("region");
+            $table->string("drapeau");
             $table->timestamps();
 
         });
