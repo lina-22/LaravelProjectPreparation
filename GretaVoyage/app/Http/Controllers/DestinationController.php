@@ -25,7 +25,7 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        //
+        return view("destinations.ajoutdestinations");
     }
 
     /**
@@ -36,8 +36,27 @@ class DestinationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+              //Validation des champs/attributs
+              $destinations = $request->validate(
+
+                    [
+                          "nom" => "required|min:2|max:100|string|unique:Destinations,nom",
+                          "description" => "string|min:10",
+                          "dateDebut" => "date|required",
+                          "dateFin" => "date",
+                          "prix" => "numeric|required",
+                          "estDisponible"=>"boolean|required|",
+                          "duree"=>"integer|required|",
+                          'pays_id' => 'required|integer'
+                      ]
+                    );
+                    Destination::create($destinations);
+                    // dd("$destinations");
+            //redirection vers le dashboard
+            // session()->flash("success","Le destination a bien été ajouter !");
+            // return redirect("/admin/alldestination");
+        }
+
 
     /**
      * Display the specified resource.

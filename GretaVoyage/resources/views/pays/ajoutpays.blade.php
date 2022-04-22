@@ -2,7 +2,11 @@
 @section("titre")
 Ajout Pays
 @endsection
-
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 @section("contenu")
 <div class="container my-2">
     <div class="col-12 col-sm-10 col-md-6 col-lg-4 mx-auto">

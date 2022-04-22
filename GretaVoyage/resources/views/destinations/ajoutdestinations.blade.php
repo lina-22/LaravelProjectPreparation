@@ -1,13 +1,13 @@
 @extends("template")
 @section("titre")
-Ajout Pays
+Ajout Destination
 @endsection
 
 @section("contenu")
 <div class="container my-2">
     <div class="col-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
-        <h1>Fomulaire d'ajout d'un pays</h1>
-        <form action="/admin/pays" method="post" enctype="multipart/form-data">
+        <h1>Please add destintion</h1>
+        <form action="/admin/destination" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row mb-2">
                 <label for="nom">Nom</label>
@@ -19,27 +19,61 @@ Ajout Pays
             </div>
 
             <div class="row mb-2">
-                <label for="population">Population</label>
-                <input name="population" min="0" required type="number" class="form-control" id="population"
-                    placeholder="indiquer la population">
-                @error("population")
+                <label for="description">Description</label>
+                <input name="description" min="4" required type="text" class="form-control" id="description"
+                    placeholder="indiquer la description">
+                @error("description")
                 <div class="text-danger">{{$message}}</div>
                 @enderror
             </div>
 
             <div class="row mb-2">
-                <label for="region">Region</label>
-                <input name="region" minlength="4" required type="" class="form-control" id="region"
-                    placeholder="indiquer la region">
-                @error("region")
+                <label for="dateDebut">DateDebut</label>
+                <input name="dateDebut" minlength="4" required type="date" class="form-control" id="dateDebut"
+                    placeholder="indiquer la dateDebut">
+                @error("dateDebut")
                 <div class="text-danger">{{$message}}</div>
                 @enderror
             </div>
 
             <div class="row mb-2">
-                <label for="image">Image</label>
-                <input name="drapeau" required type="file" accept="image" class="form-control" id="image" placeholder="Rechercher une image">
-                @error("image")
+                <label for="dateFin">DateFin</label>
+                <input name="dateFin" minlength="4" required type="date" class="form-control" id="dateFin"
+                    placeholder="indiquer la dateFin">
+                @error("dateFin")
+                <div class="text-danger">{{$message}}</div>
+                @enderror
+            </div>
+
+            <div class="row mb-2">
+                <label for="prix">Prix</label>
+                <input name="prix" minlength="4" required type="price" class="form-control" id="prix"
+                    placeholder="indiquer la prix">
+                @error("prix")
+                <div class="text-danger">{{$message}}</div>
+                @enderror
+            </div>
+            <div class="row mb-2">
+                <label for="estDisponible">EstDisponible</label>
+                <input name="estDisponible" minlength="" required type="boolean" class="form-control" id="estDisponible"
+                    placeholder="indiquer la estDisponible">
+                @error("estDisponible")
+                <div class="text-danger">{{$message}}</div>
+                @enderror
+            </div>
+            <div class="row mb-2">
+                <label for="duree">Duree</label>
+                <input name="duree" minlength="" required type="" class="form-control" id="duree"
+                    placeholder="indiquer la duree">
+                @error("duree")
+                <div class="text-danger">{{$message}}</div>
+                @enderror
+            </div>
+            <div class="row mb-2">
+                <label for="pays_id">pays_id</label>
+                <input name="pays_id" required type="" class="form-control" id="pays_id"
+                    placeholder="indiquer la pays_id">
+                @error("pays_id")
                 <div class="text-danger">{{$message}}</div>
                 @enderror
             </div>
