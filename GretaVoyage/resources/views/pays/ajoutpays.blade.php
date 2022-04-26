@@ -16,7 +16,7 @@ Ajout Pays
             <div class="row mb-2">
                 <label for="nom">Nom</label>
                 <input name="nom" minlength="2" maxlength="100" required type="text" class="form-control" id="nom"
-                    placeholder="le nom du pays">
+                    placeholder="le nom du pays" value="{{old("nom")}}">
                 @error("nom")
                 <div class="text-danger">{{$message}}</div>
                 @enderror
@@ -25,7 +25,7 @@ Ajout Pays
             <div class="row mb-2">
                 <label for="population">Population</label>
                 <input name="population" min="0" required type="number" class="form-control" id="population"
-                    placeholder="indiquer la population">
+                    placeholder="indiquer la population" value="{{old("population")}}">
                 @error("population")
                 <div class="text-danger">{{$message}}</div>
                 @enderror
@@ -34,7 +34,7 @@ Ajout Pays
             <div class="row mb-2">
                 <label for="region">Region</label>
                 <input name="region" minlength="4" required type="" class="form-control" id="region"
-                    placeholder="indiquer la region">
+                    placeholder="indiquer la region" value="{{old("region")}}">
                 @error("region")
                 <div class="text-danger">{{$message}}</div>
                 @enderror

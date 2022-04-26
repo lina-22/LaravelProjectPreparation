@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\DestinationController;
-use App\Http\Controllers\PaysController;
+use App\Http\Controllers\Admincontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Route::get('/admin', [AdminController::class, 'dashbord'])->middleware('auth');
 
 Route::get("/admin/pays",[PaysController::class,"index"]);
 //Afficher le formualaire d'ajout

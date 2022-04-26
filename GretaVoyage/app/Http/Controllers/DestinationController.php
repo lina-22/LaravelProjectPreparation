@@ -54,7 +54,7 @@ class DestinationController extends Controller
                     // dd("$destinations");
             //redirection vers le dashboard
             // session()->flash("success","Le destination a bien été ajouter !");
-            // return redirect("/admin/alldestination");
+            return redirect("/admin/alldestination");
         }
 
 
@@ -77,7 +77,10 @@ class DestinationController extends Controller
      */
     public function edit(Destination $destination)
     {
-        //
+        $destination=Destination::findorfail($id);
+
+        //Afficher un formulaire modification pré-rempli
+        return view("destinations.modifdestinations",["leDestination"=>$destination]);
     }
 
     /**
@@ -89,7 +92,22 @@ class DestinationController extends Controller
      */
     public function update(Request $request, Destination $destination)
     {
-        //
+        $destination=Destination::find($request->id);
+
+        $attributs = $request->validate(
+          [
+              "nom" => "required|min:2|max:100|string",
+              "population" => "numeric|required|min:0",
+              "region" => "required|string|min:4",
+              "drapeau"=>"image"
+          ]
+      );
+
+      //Mettre a jour le pays avec de nouveau attributs
+      $destination->update($attributs);
+      //Le message flash
+      session()->flash("success","$destination->nom a bien était modifier ! ");
+      return redirect("/admin/alldestination");
     }
 
     /**
@@ -100,7 +118,10 @@ class DestinationController extends Controller
      */
     public function destroy(Destination $destination)
     {
-        //
+        $destination=Destination::findOrFail($id);
+        $destination->delete();
+        session()->flash("success","$destination->nom a bien était effacer ! ");
+        return redirect("/admin/alldestination");
     }
 
 }
