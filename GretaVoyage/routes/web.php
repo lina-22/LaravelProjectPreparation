@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admincontroller;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\PaysController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/admin', [AdminController::class, 'dashbord'])->middleware('auth');
+Route::get('/admin', [AdminController::class, 'dashboard'])->middleware('auth');
 
 Route::get("/admin/pays",[PaysController::class,"index"]);
 //Afficher le formualaire d'ajout

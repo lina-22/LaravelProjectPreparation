@@ -1,6 +1,10 @@
 @extends("template")
 @section("titre")
-DashBord Admin
+Dashboard Admin
 @endsection
 
-@section()
+@section("contenu")
+<h1>Dashboard ADMIN</h1>
+<p>Seulement pour les admins ...</p>
+@endsection
+
